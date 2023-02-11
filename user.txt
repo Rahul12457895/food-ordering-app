@@ -21,14 +21,17 @@ class User:
         food_list = []
         for food_item in a1.Food.food_list:
             food_list.append(str(food_item.food_id) + " - " + food_item.name + " (" + str(food_item.quantity) + " peices"") [" "INR " + str(food_item.price) + "]")
-        
         for index, food in enumerate(food_list):
             print(index + 1, food)
-        
-        index,index,index = [int(index) for index in input("Enter three value: ").split()]
-        print(food_list[index-1])
-        print(food_list[index-1])
-        print(food_list[index-1])
+        x,y = [int(x) for x in input("Enter any Two-food items you want to order: ").split(",")]
+        print(food_list[x-1])
+        print(food_list[y-1])
+        choice = input("You want to order again something else: ")
+        if (choice == "yes"):
+            x = int(input("enter again a food item: "))
+            print(food_list[x-1])
+        elif (choice == "no"):
+            print("thank you sir for your order")
         
 x= User("RAHUL",7222882220,"r","delhi",1245)
 x.login_app()
