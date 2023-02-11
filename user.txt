@@ -1,0 +1,35 @@
+import a1
+
+class User:
+    def __init__(self, name, phone, email, address, password):
+        self.name = name
+        self.phone = phone
+        self.email = email
+        self.address = address
+        self.password = password
+    def login_app(self):
+        print("Going to login page please enter your details............")
+        self.email1 = input("enter your email1: ")
+        self.password1 = int(input("enter your password1: "))
+        if(self.email == self.email1 and self.password == self.password1):
+            print("successfully logged in...........")
+        else:
+            print("unsuccessfully logged in...........")
+            exit()
+            
+    def place_new_order(self):
+        food_list = []
+        for food_item in a1.Food.food_list:
+            food_list.append(str(food_item.food_id) + " - " + food_item.name + " (" + str(food_item.quantity) + " peices"") [" "INR " + str(food_item.price) + "]")
+        
+        for index, food in enumerate(food_list):
+            print(index + 1, food)
+        
+        index,index,index = [int(index) for index in input("Enter three value: ").split()]
+        print(food_list[index-1])
+        print(food_list[index-1])
+        print(food_list[index-1])
+        
+x= User("RAHUL",7222882220,"r","delhi",1245)
+x.login_app()
+x.place_new_order()

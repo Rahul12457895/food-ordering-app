@@ -1,0 +1,62 @@
+class Food:
+    food_list = []
+    food_id = 100
+    
+    def __init__(self, name, quantity, price, discount, stock):
+        self.food_id = Food.food_id
+        Food.food_id += 1
+        self.name = name
+        self.quantity = quantity
+        self.price = price
+        self.discount = discount
+        self.stock = stock
+    
+    @classmethod
+    def add_food_item(cls, name, quantity, price, discount, stock):
+        food_item = Food(name, quantity, price, discount, stock)
+        cls.food_list.append(food_item)
+        print("Food item added successfully with Food ID: ", food_item.food_id)
+    
+    @classmethod
+    def edit_food_item(cls, food_id, name, quantity, price, discount, stock):
+        for food_item in cls.food_list:
+            if food_item.food_id == food_id:
+                food_item.name = name
+                food_item.quantity = quantity
+                food_item.price = price
+                food_item.discount = discount
+                food_item.stock = stock
+                print("Food item edited successfully")
+                return
+        print("Food item not found with given Food ID")
+    
+    @classmethod
+    def remove_food_item(cls, food_id):
+        for food_item in cls.food_list:
+            if food_item.food_id == food_id:
+                cls.food_list.remove(food_item)
+                print("Food item removed successfully")
+                return
+        print("Food item not found with given Food ID")
+    
+    @classmethod
+    def view_all_food_items(cls):
+        for food_item in cls.food_list:
+            print("Food ID: ", food_item.food_id)
+            print("Name: ", food_item.name)
+            print("Quantity: ", food_item.quantity)
+            print("Price: ", food_item.price)
+            print("Discount: ", food_item.discount)
+            print("Stock: ", food_item.stock)
+            print("\n")
+            
+x = Food("dal",20,200,10,2)
+x.add_food_item("panner",10,400,22,3)
+x.add_food_item("momos",10,400,22,3)
+x.add_food_item("chicken",10,400,22,4)
+x.add_food_item("chowmein",10,400,22,4)
+x.add_food_item("burger",10,400,22,4)
+x.add_food_item("coffee",10,470,22,4)
+x.edit_food_item(101,"mushroom",30,250,15,3)
+x.remove_food_item(102)
+x.view_all_food_items()
