@@ -7,10 +7,11 @@ class User:
         self.email = email
         self.address = address
         self.password = password
+        
     def login_app(self):
         print("Going to login page please enter your details............")
         self.email1 = input("enter your email1: ")
-        self.password1 = int(input("enter your password1: "))
+        self.password1 = input("enter your password1: ")
         if(self.email == self.email1 and self.password == self.password1):
             print("successfully logged in...........")
         else:
@@ -23,16 +24,19 @@ class User:
             food_list.append(str(food_item.food_id) + " - " + food_item.name + " (" + str(food_item.quantity) + " peices"") [" "INR " + str(food_item.price) + "]")
         for index, food in enumerate(food_list):
             print(index + 1, food)
+        
         x,y = [int(x) for x in input("Enter any Two-food items you want to order: ").split(",")]
         print(food_list[x-1])
         print(food_list[y-1])
+        
         choice = input("You want to order again something else: ")
         if (choice == "yes"):
             x = int(input("enter again a food item: "))
-            print(food_list[x-1])
+            print("Your other food item is: ",food_list[x-1])
         elif (choice == "no"):
-            print("thank you sir for your order")
+            print("thank you for your ordered")
         
-x= User("RAHUL",7222882220,"r","delhi",1245)
+    
+x= User("RAHUL",7222882220,"r","delhi","rr")
 x.login_app()
 x.place_new_order()
