@@ -7,7 +7,8 @@ class User:
         self.email = email
         self.address = address
         self.password = password
-        
+        self.food_list = []
+        self.orders = []
     def login_app(self):
         print("Going to login page please enter your details............")
         self.email1 = input("enter your email1: ")
@@ -19,24 +20,48 @@ class User:
             exit()
             
     def place_new_order(self):
-        food_list = []
+        
         for food_item in a1.Food.food_list:
-            food_list.append(str(food_item.food_id) + " - " + food_item.name + " (" + str(food_item.quantity) + " peices"") [" "INR " + str(food_item.price) + "]")
-        for index, food in enumerate(food_list):
+            self.food_list.append(str(food_item.food_id) + " - " + food_item.name + " (" + str(food_item.quantity) + " peices"") [" "INR " + str(food_item.price) + "]")
+        for index, food in enumerate(self.food_list):
             print(index + 1, food)
         
         x,y = [int(x) for x in input("Enter any Two-food items you want to order: ").split(",")]
-        print(food_list[x-1])
-        print(food_list[y-1])
+        print("Items which you are selected..........")
+        print(self.food_list[x-1])
+        print(self.food_list[y-1])
+        self.orders.append(self.food_list[x-1])
+        self.orders.append(self.food_list[y-1])
         
-        choice = input("You want to order again something else: ")
-        if (choice == "yes"):
-            x = int(input("enter again a food item: "))
-            print("Your other food item is: ",food_list[x-1])
-        elif (choice == "no"):
-            print("thank you for your ordered")
+    def view_order_history(self):
+        enumerate(self.orders)
+        print("Your order history is..........")
+        print(list(enumerate(self.orders)))
+        print("\n")
         
-    
+    def Update_profile(self,name=None,phone=None,email=None,address=None,password=None):
+        if name:
+            self.name=name
+        if phone:
+            self.phone=phone
+        if email:
+            self.email=email
+        if address:
+            self.address=address
+        if password:
+            self.password=password
+        
 x= User("RAHUL",7222882220,"r","delhi","rr")
 x.login_app()
+print("You can see that before updation my profile is..............")
+print(x.name)
+print(x.phone)
+print("\n")
 x.place_new_order()
+print("\n")
+x.view_order_history()
+print("\n")
+x.Update_profile(name="kartik",phone=961061111)
+print("You can see that after updation my profile is..............")
+print(x.name)
+print(x.phone)
